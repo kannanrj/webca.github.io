@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Edukate - Online Education Website Template</title>
+    <title>weBca - Online Education WebsiteweBca - Online Education Website</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -84,17 +84,10 @@
                             </div>
                             <div class="mt-n1">
                                 <h4>Our Location</h4>
-                                <p class="m-0">123 Street, New York, USA</p>
+                                <p class="m-0">Kottayam,Kerala</p>
                             </div>
                         </div>
-                        <div class="d-flex align-items-center mb-5">
-                            <div class="btn-icon bg-secondary mr-4">
-                                <i class="fa fa-2x fa-phone-alt text-white"></i>
-                            </div>
-                            <div class="mt-n1">
-                                <h4>Call Us</h4>
-                                <p class="m-0">+012 345 6789</p>
-                            </div>
+                        <div class="d-flex align-items-center mb-5">                           
                         </div>
                         <div class="d-flex align-items-center">
                             <div class="btn-icon bg-warning mr-4">
@@ -102,7 +95,7 @@
                             </div>
                             <div class="mt-n1">
                                 <h4>Email Us</h4>
-                                <p class="m-0">info@example.com</p>
+                                <p class="m-0">feedback.webca@gmail.com</p>
                             </div>
                         </div>
                     </div>
@@ -113,20 +106,23 @@
                         <h1 class="display-4">Send Us A Message</h1>
                     </div>
                     <div class="contact-form">
-                        <form>
+                        <form action="https://formsubmit.co/feedback.webca@gmail.com" method="POST">
+                        <input type="hidden" name="_next" value="index.html">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_autoresponse" value="Hello ,thank you so much.......team WEBCA">
                             <div class="row">
                                 <div class="col-6 form-group">
-                                    <input type="text" class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="Your Name" required="required">
+                                    <input type="text" name="name" class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="Your Name" required="required">
                                 </div>
                                 <div class="col-6 form-group">
-                                    <input type="email" class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="Your Email" required="required">
+                                    <input type="email" name="email" class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="Your Email" required="required">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="Subject" required="required">
+                                <input type="text" name="Subject" class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="Subject" required="required">
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control border-top-0 border-right-0 border-left-0 p-0" rows="5" placeholder="Message" required="required"></textarea>
+                                <textarea class="form-control border-top-0 border-right-0 border-left-0 p-0" name =message rows="5" placeholder="Message" required="required"></textarea>
                             </div>
                             <div>
                                 <button class="btn btn-primary py-3 px-5" type="submit">Send Message</button>
