@@ -1,376 +1,530 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>weBca - Online Education Website </title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="Free HTML Templates" name="keywords">
-        <meta content="Free HTML Templates" name="description">
-    
-        <!-- Favicon -->
-        <link href="img/favicon.ico" rel="icon">
-    
-        <!-- Google Web Fonts -->
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> 
-    
-        <!-- Font Awesome -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    
-        <!-- Libraries Stylesheet -->
-        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    
-        <!-- Customized Bootstrap Stylesheet -->
-        <link href="css/style.css" rel="stylesheet">
-        <script
-        src="https://code.jquery.com/jquery-3.3.1.js"
-        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-        crossorigin="anonymous">
-        </script>
-        <script> 
-            $(function(){
-              $("#header").load("header.html"); 
-              $("#footer").load("footer.html"); 
-            });
-            </script> 
-            <style>$screen-sm-min: 768px;
-                $shadow: 0 2px 3px rgba(0, 0, 0, .2);
-                $gray-border: darken(#f8f8f8, 10%);
-                $gray-light: rgba(0, 0, 0, .35);
-                $faded-yellow: lighten(#f1c40f, 40%);
-                
-                // thx, @HugoGiraudel
-                @mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white, 50%)) {
-                  ::-webkit-scrollbar {
-                      width:  $size;
-                      height: $size;
-                  }
-                
-                  ::-webkit-scrollbar-thumb {
-                      background: $foreground-color;
-                  }
-                
-                  ::-webkit-scrollbar-track {
-                      background: $background-color;
-                  }
-                
-                  // For Internet Explorer
-                  body {
-                    scrollbar-face-color: $foreground-color;
-                    scrollbar-track-color: $background-color;
-                  }
-                }
-                
-                @include scrollbars(.15em, slategray);
-                
-                body,
-                html {
-                  height: 100%;
-                  width: 100%;
-                }
-                
-                body {
-                  font-family: "Roboto";
-                }
-                
-                .wrap {
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  flex-direction: column;
-                  height: 100%;
-                  width: 100%;
-                }
-                
-                body {
-                  background: #f8f8f8;
-                }
-                
-                button.btn {
-                  box-shadow: $shadow;
-                  border: 0;
-                  border-radius: 0px;
-                  i {
-                    margin-right: 3px;
-                  }
-                }
-                
-                body.large-screen {
-                  .table-wrapper {
-                    max-width: 800px;
-                  }
-                  .card-list-table {
-                    background: white;
-                    tbody tr {
-                      background: transparent;
-                      box-shadow: none;
-                      margin: 0;
-                      &:nth-of-type(even) {
-                        background: $gray-border;
-                      }
-                    }
-                    thead {
-                      display: table-header-group;
-                      th:last-child {
-                        box-shadow: none;
-                      }
-                      th {
-                        border-bottom: 1px solid $gray-border;
-                        padding: 12px 24px;
-                      }
-                    }
-                    tbody {
-                      tr {
-                        display: table-row;
-                        padding-bottom: 0;
-                        &:nth-of-type(even) {
-                          background: #fff;
-                        }
-                      }
-                      td {
-                        border-bottom: 1px solid $gray-border;
-                        cursor: pointer;
-                        display: table-cell;
-                        padding: 20px 24px;
-                        transition: background .2s ease-out;
-                        vertical-align: middle;
-                        &:after {
-                          display: none;
-                        }
-                        &:before {
-                          content: '';
-                        }
-                      }
-                      tr:hover td {
-                        background: $faded-yellow;
-                      }
-                    }
-                  }
-                }
-                
-                .buttons {
-                  margin: 10px 0 50px;
-                }
-                
-                .table-wrapper {
-                  max-width: 300px;
-                  width: 80%;
-                  margin: 0 auto 0;
-                  max-height: 500px;
-                  overflow-y: scroll;
-                  position: relative;
-                  transition: all .2s ease-out;
-                  @media(min-width: $screen-sm-min) {
-                    background: white;
-                    box-shadow: $shadow;
-                  }
-                }
-                
-                .card-list-table {
-                  table-layout: fixed;
-                  background: transparent;
-                  margin-bottom: 0;
-                  width: 100%;
-                  thead {
-                    display: none;
-                  }
-                  tbody tr {
-                    box-shadow: $shadow;
-                    background: #fff;
-                    border-bottom: 1px solid $gray-border;
-                    cursor: pointer;
-                    display: block;
-                    padding: 15px 10px;
-                    margin: 0 0 10px 0;
-                  }
-                  tbody td {
-                    border: 0;
-                    display: block;
-                    padding: 10px 10px 20px 40%;
-                    position: relative;
-                    &:first-of-type::after {
-                      visibility: hidden;
-                    }
-                    &:after {
-                      content: '';
-                      width: calc(100% - 30px);
-                      display: block;
-                      margin: 0 auto;
-                      height: 1px;
-                      background: $gray-border;
-                      position: absolute;
-                      left: 0;
-                      right: 0;
-                      top: -6px
-                    }
-                    &:before {
-                      color: $gray-light;
-                      text-transform: uppercase;
-                      font-size: .85em;
-                      content: attr(data-title);
-                      display: table-cell;
-                      font-weight: 500;
-                      height: 100%;
-                      left: 15px;
-                      margin: auto;
-                      position: absolute;
-                      vertical-align: middle;
-                      white-space: nowrap;
-                      width: 40%;
-                    }
-                  }
-                  thead th {
-                    text-transform: uppercase;
-                    font-size: .85em;
-                    color: $gray-light;
-                    letter-spacing: .5pt;
-                  }
-                }</style>
-                <script>var desktopBtn = $("#desktop");
-                    var mobileBtn = $("#mobile");
-                    var body = $('body');
-                    
-                    desktopBtn.on('click', function() {
-                      body.addClass('large-screen');
-                      togglePrimaryButtonStyle($(this));
-                    })
-                    
-                    mobileBtn.on('click', function() {
-                      body.removeClass('large-screen');
-                      togglePrimaryButtonStyle($(this));
-                    })
-                    
-                    function togglePrimaryButtonStyle(el) {
-                      var sibling = el.parent('.btn-group').siblings('.btn-group').find('.btn');
-                      el.addClass('btn-primary');
-                      sibling.removeClass('btn-primary').addClass('btn-default');
-                    }</script>
-    </head>
+
+<head>
+    <meta charset="utf-8">
+    <title>weBca - Online Education Website</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous">
+    </script>
+     <script> 
+        $(function(){
+          $("#header").load("header.html"); 
+          $("#footer").load("footer.html"); 
+        });
+        </script>  
+</head>
+
 <body>
-    
-    <body class="large-screen">
-        <div class="wrap">
-          <div class="btn-toolbar buttons">
-            <div class="btn-group">
-              <button id="desktop" class="btn btn-primary">
-              <i class="fa fa-desktop" aria-hidden="true"></i>
-              Desktop Table
-            </button>
+    <!-- Navbar Start -->
+    <div id="header"></div>
+    <!-- Navbar End -->
+    <!-- Header Start -->
+    <div class="jumbotron jumbotron-fluid page-header position-relative overlay-bottom" style="margin-bottom: 90px;">
+        <div class="container text-center py-5">
+            <h1 class="text-white display-1">QUESTION PAPER</h1>
+            <div class="d-inline-flex text-white mb-5">
+                <p class="m-0 text-uppercase"><a class="text-white" href="">Home</a></p>
+                <i class="fa fa-angle-double-right pt-1 px-3"></i>
+                <p class="m-0 text-uppercase">Qustion Paper</p>
             </div>
-            <div class="btn-group">
-              <button id="mobile" class="btn btn-default">
-              <i class="fa fa-mobile-phone" aria-hidden="true"></i>
-              Mobile Card List
-            </button>
-            </div>
+      </div>
+ </div>
+
+    <!-- Header End -->
+
+
+    <!-- Detail Start -->
+   <table><tr><td>
+      <div class="container py-5">
+          <div class="row">
+              <div class="col-lg-8">
+                  <div class="mb-5">
+                      <div class="section-title position-relative mb-5">
+                          <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">SEMESTER 1</h6>
+                          <figure class="wp-block-table">
+                              <table>
+                                  <tbody>
+                                        <tr>
+                                            <td>
+                                                <strong>
+                                                    <span style="color: var(--paletteColor2, #3582f7);" class="stk-highlight">SUBJECTS</span>
+                                                </strong>
+                                            </td>
+                                            <td>
+                                                <strong>
+                                                     <span style="color: var(--paletteColor2, #3582f7);" class="stk-highlight"> QUESTION PAPER</span>
+                                                 </strong>
+                                            </td>
+                                            
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td>
+                                                English-I 
+                                            </td>
+                                            <td>
+                                                <a href="https://drive.google.com/drive/folders/1EbOzvYn9fEiDyD50_FoO6T0zpv2TISSk?usp=sharing" target="_blank" rel="noreferrer noopener">&nbsp Download</a>
+                                            </td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Mathematics 
+                                            </td>
+                                            <td>
+                                                <a href="https://drive.google.com/drive/folders/1dehSKNM5ESkzTSBcDhuJsJM4Uvg_bxaG?usp=sharing" target="_blank" rel="noreferrer noopener">&nbsp Download</a>
+                                            </td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Basic Satistics 
+                                            </td>
+                                                <td>
+                                                    <a href="https://drive.google.com/drive/folders/12ycMd-c3jUcgDlud8NVTdiofIeQu28yK?usp=sharing" target="_blank" rel="noreferrer noopener">&nbsp Download</a>
+                                                </td>
+                                               
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Computer Fundamentals and Digital Principles 
+                                                </td>
+                                                <td>
+                                                    <a href="https://drive.google.com/drive/folders/1Hfa-GDm7yc_TGBI-fqh46tfT5rqKNjLN?usp=sharing" target="_blank" rel="noreferrer noopener">&nbsp Download</a>
+                                                </td>
+                                               
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Methodology of Programming and C Language 
+                                                </td>
+                                                <td>
+                                                    <a href="https://drive.google.com/drive/folders/1X4e0tc8jznhDplfSXot1EKtv0bKRmHGr?usp=sharing" target="_blank" rel="noreferrer noopener">&nbsp Download</a>
+                                                </td>                                              
+                                              </tbody>
+                                            </table>
+                                        </figure>
+                                    </div>                      
+                                </div>
+                            </div>
+                        </div>
+                   
+                </div>
+              </td> 
+
+            <td>
+                  <div class="container py-5">
+                      <div class="row">
+                          <div class="col-lg-8">
+                              <div class="mb-5">
+                                  <div class="section-title position-relative mb-5">
+                                      <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">SEMESTER 2</h6>
+                                      <figure class="wp-block-table">
+                                          <table>
+                                              <tbody>
+                                              <tr>
+                                                  <td>
+                                                      <strong>
+                                                          <span style="color: var(--paletteColor2, #3582f7);" class="stk-highlight">SUBJECTS</span>
+                                                      </strong>
+                                                  </td>
+                                                  <td>
+                                                      <strong>
+                                                           <span style="color: var(--paletteColor2, #3582f7);" class="stk-highlight"> QUESTION PAPER</span>
+                                                       </strong>
+                                                  </td>
+                                                  
+                                              </tr>
+                                              
+                                              <tr>
+                                                  <td>
+                                                      English-II 
+                                                  </td>
+                                                  <td>
+                                                      <a href="https://drive.google.com/drive/folders/1EbOzvYn9fEiDyD50_FoO6T0zpv2TISSk?usp=sharing" target="_blank" rel="noreferrer noopener">&nbsp Download</a>
+                                                  </td>
+                                                  
+                                              </tr>
+                                              <tr>
+                                                  <td>
+                                                    Discrete Mathematics II 
+                                                  </td>
+                                                  <td>
+                                                      <a href="https://drive.google.com/drive/folders/1dehSKNM5ESkzTSBcDhuJsJM4Uvg_bxaG?usp=sharing" target="_blank" rel="noreferrer noopener">&nbsp Download</a>
+                                                  </td>
+                                                  
+                                              </tr>
+                                              <tr>
+                                                  <td>
+                                                    Data Base Management Systems
+                                                  </td>
+                                                      <td>
+                                                          <a href="https://drive.google.com/drive/folders/12ycMd-c3jUcgDlud8NVTdiofIeQu28yK?usp=sharing" target="_blank" rel="noreferrer noopener">&nbsp Download</a>
+                                                      </td>
+                                                     
+                                                  </tr>
+                                                  <tr>
+                                                      <td>
+                                                        Computer Organization and Architecture 
+                                                      </td>
+                                                      <td>
+                                                          <a href="https://drive.google.com/drive/folders/1Hfa-GDm7yc_TGBI-fqh46tfT5rqKNjLN?usp=sharing" target="_blank" rel="noreferrer noopener">&nbsp Download</a>
+                                                      </td>
+                                                     
+                                                  </tr>
+                                                  <tr>
+                                                      <td>
+                                                        Object oriented programming using C++
+                                                      </td>
+                                                      <td>
+                                                          <a href="https://drive.google.com/drive/folders/1X4e0tc8jznhDplfSXot1EKtv0bKRmHGr?usp=sharing" target="_blank" rel="noreferrer noopener">&nbsp Download</a>
+                                                      </td>
+                                                     
+                                                  </tr>
+                                                 
+                                                </tbody>
+                                              </table>
+                                          </figure>
+                                      </div>                      
+                                  </div>
+                              </div>
+                          </div>
+                     
+                  </div>
+                </td>
+        
+                <td> 
+                    <div class="container py-5">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="mb-5">
+                                    <div class="section-title position-relative mb-5">
+                                        <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">SEMESTER 3</h6>
+                                        <figure class="wp-block-table">
+                                            <table>
+                                                <tbody>
+                                          <tr>
+                                              <td>
+                                                  <strong>
+                                                      <span style="color: var(--paletteColor2, #3582f7);" class="stk-highlight">SUBJECTS</span>
+                                                  </strong>
+                                              </td>
+                                              <td>
+                                                  <strong>
+                                                       <span style="color: var(--paletteColor2, #3582f7);" class="stk-highlight"> QUESTION PAPER</span>
+                                                   </strong>
+                                              </td>
+                                              
+                                          </tr>
+                                          
+                                          <tr>
+                                              <td>
+                                                Advanced Statistical Methods 
+                                              </td>
+                                              <td>
+                                                  <a href="https://drive.google.com/drive/folders/1EbOzvYn9fEiDyD50_FoO6T0zpv2TISSk?usp=sharing" target="_blank" rel="noreferrer noopener">&nbsp Download</a>
+                                              </td>
+                                              
+                                          </tr>
+                                          <tr>
+                                              <td>
+                                                Computer Graphics
+                                              </td>
+                                              <td>
+                                                  <a href="https://drive.google.com/drive/folders/1dehSKNM5ESkzTSBcDhuJsJM4Uvg_bxaG?usp=sharing" target="_blank" rel="noreferrer noopener">&nbsp Download</a>
+                                              </td>
+                                              
+                                          </tr>
+                                          <tr>
+                                              <td>
+                                                Microprocessor and PC Hardware 
+                                              </td>
+                                                  <td>
+                                                      <a href="https://drive.google.com/drive/folders/12ycMd-c3jUcgDlud8NVTdiofIeQu28yK?usp=sharing" target="_blank" rel="noreferrer noopener">&nbsp Download</a>
+                                                  </td>
+                                                 
+                                              </tr>
+                                              <tr>
+                                                  <td>
+                                                    Operating Systems 
+                                                  </td>
+                                                  <td>
+                                                      <a href="https://drive.google.com/drive/folders/1Hfa-GDm7yc_TGBI-fqh46tfT5rqKNjLN?usp=sharing" target="_blank" rel="noreferrer noopener">&nbsp Download</a>
+                                                  </td>
+                                                 
+                                              </tr>
+                                              <tr>
+                                                  <td>
+                                                    Data Structure using C++
+                                                  </td>
+                                                  <td>
+                                                      <a href="https://drive.google.com/drive/folders/1X4e0tc8jznhDplfSXot1EKtv0bKRmHGr?usp=sharing" target="_blank" rel="noreferrer noopener">&nbsp Download</a>
+                                                  </td>
+                                                 
+                                              </tr>
+                                             
+                                            </tbody>
+                                          </table>
+                                      </figure>
+                                  </div>                      
+                              </div>
+                          </div>
+                      </div>
+                  
+              </div>
+            </td>
+           </tr>
+           
+           <tr>
+            <td>
+                <div class="container py-5">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="mb-5">
+                                <div class="section-title position-relative mb-5">
+                                    <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">SEMESTER 4</h6>
+                                    <figure class="wp-block-table">
+                                        <table>
+                                            <tbody>
+                                      <tr>
+                                          <td>
+                                              <strong>
+                                                  <span style="color: var(--paletteColor2, #3582f7);" class="stk-highlight">SUBJECTS</span>
+                                              </strong>
+                                          </td>
+                                          <td>
+                                              <strong>
+                                                   <span style="color: var(--paletteColor2, #3582f7);" class="stk-highlight"> QUESTION PAPER</span>
+                                               </strong>
+                                          </td>
+                                          
+                                      </tr>
+                                      
+                                      <tr>
+                                          <td>
+                                            Operational Research
+                                          </td>
+                                          <td>
+                                              <a href="https://drive.google.com/drive/folders/1EbOzvYn9fEiDyD50_FoO6T0zpv2TISSk?usp=sharing" target="_blank" rel="noreferrer noopener">&nbsp Download</a>
+                                          </td>
+                                          
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                            Design and Analysis of Algorithms
+                                          </td>
+                                          <td>
+                                              <a href="https://drive.google.com/drive/folders/1dehSKNM5ESkzTSBcDhuJsJM4Uvg_bxaG?usp=sharing" target="_blank" rel="noreferrer noopener">&nbsp Download</a>
+                                          </td>
+                                          
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                            System Analysis & Software Engineering
+                                          </td>
+                                              <td>
+                                                  <a href="https://drive.google.com/drive/folders/12ycMd-c3jUcgDlud8NVTdiofIeQu28yK?usp=sharing" target="_blank" rel="noreferrer noopener">&nbsp Download</a>
+                                              </td>
+                                             
+                                          </tr>
+                                          <tr>
+                                              <td>
+                                                Linux Administration 
+                                              </td>
+                                              <td>
+                                                  <a href="https://drive.google.com/drive/folders/1Hfa-GDm7yc_TGBI-fqh46tfT5rqKNjLN?usp=sharing" target="_blank" rel="noreferrer noopener">&nbsp Download</a>
+                                              </td>
+                                             
+                                          </tr>
+                                          <tr>
+                                              <td>
+                                                Web Programming using PHP 
+                                              </td>
+                                              <td>
+                                                  <a href="https://drive.google.com/drive/folders/1X4e0tc8jznhDplfSXot1EKtv0bKRmHGr?usp=sharing" target="_blank" rel="noreferrer noopener">&nbsp Download</a>
+                                              </td>                                              
+                                            </tbody>
+                                          </table>
+                                      </figure>
+                                  </div>                      
+                              </div>
+                          </div>
+                      </div>
+                  
+              </div>
+            </td>
+            <td>
+                <div class="container py-5">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="mb-5">
+                                <div class="section-title position-relative mb-5">
+                                    <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">SEMESTER 5</h6>
+                                    <figure class="wp-block-table">
+                                        <table>
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <strong>
+                                                        <span style="color: var(--paletteColor2, #3582f7);" class="stk-highlight">SUBJECTS</span>
+                                                    </strong>
+                                                </td>
+                                                <td>
+                                                    <strong>
+                                                         <span style="color: var(--paletteColor2, #3582f7);" class="stk-highlight"> QUESTION PAPER</span>
+                                                     </strong>
+                                                </td>
+                                                
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td>
+                                                  Computer Networks
+                                                </td>
+                                                <td>
+                                                    <a href="https://drive.google.com/drive/folders/1EbOzvYn9fEiDyD50_FoO6T0zpv2TISSk?usp=sharing" target="_blank" rel="noreferrer noopener">&nbsp Download</a>
+                                                </td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                  IT and Environment
+                                                </td>
+                                                <td>
+                                                    <a href="https://drive.google.com/drive/folders/1dehSKNM5ESkzTSBcDhuJsJM4Uvg_bxaG?usp=sharing" target="_blank" rel="noreferrer noopener">&nbsp Download</a>
+                                                </td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Basic Satistics (Complementary)
+                                                </td>
+                                                    <td>
+                                                        <a href="https://drive.google.com/drive/folders/12ycMd-c3jUcgDlud8NVTdiofIeQu28yK?usp=sharing" target="_blank" rel="noreferrer noopener">&nbsp Download</a>
+                                                    </td>
+                                                   
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                      Java Programming using Linux
+                                                    </td>
+                                                    <td>
+                                                        <a href="https://drive.google.com/drive/folders/1Hfa-GDm7yc_TGBI-fqh46tfT5rqKNjLN?usp=sharing" target="_blank" rel="noreferrer noopener">&nbsp Download</a>
+                                                    </td>
+                                                   
+                                                </tr>
+                                            
+                                              </tbody>
+                                            </table>
+                                        </figure>
+                                    </div>                      
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+              </td> 
+      
+     
+               <td>
+                  <div class="container py-5">
+                      <div class="row">
+                          <div class="col-lg-8">
+                              <div class="mb-5">
+                                  <div class="section-title position-relative mb-5">
+                                      <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">SEMESTER 6</h6>
+                                      <figure class="wp-block-table">
+                                          <table>
+                                              <tbody>
+                                        <tr>
+                                            <td>
+                                                <strong>
+                                                    <span style="color: var(--paletteColor2, #3582f7);" class="stk-highlight">SUBJECTS</span>
+                                                </strong>
+                                            </td>
+                                            <td>
+                                                <strong>
+                                                     <span style="color: var(--paletteColor2, #3582f7);" class="stk-highlight"> QUESTION PAPER</span>
+                                                 </strong>
+                                            </td>
+                                            
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td>
+                                              Cloud Computing
+                                            </td>
+                                            <td>
+                                                <a href="https://drive.google.com/drive/folders/1EbOzvYn9fEiDyD50_FoO6T0zpv2TISSk?usp=sharing" target="_blank" rel="noreferrer noopener">&nbsp Download</a>
+                                            </td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                              Mobile Application development- Android 
+                                            </td>
+                                            <td>
+                                                <a href="https://drive.google.com/drive/folders/1dehSKNM5ESkzTSBcDhuJsJM4Uvg_bxaG?usp=sharing" target="_blank" rel="noreferrer noopener">&nbsp Download</a>
+                                            </td>
+                                            
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                  </figure>
+                              </div>                      
+                          </div>
+                      </div>
+                  </div>
+              
           </div>
-          <div class="table-wrapper">
-            <table class="table-responsive card-list-table">
-              <thead>
-                <tr>
-                  <th>Column #1</th>
-                  <th>Column #2</th>
-                  <th>Column #3</th>
-                  <th>Column #4</th>
-                  <th>Column #5</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td data-title="Column #1">Value #1</td>
-                  <td data-title="Column #2">Value #2</td>
-                  <td data-title="Column #3">Value #3</td>
-                  <td data-title="Column #4">Value #4</td>
-                  <td data-title="Column #5">Value #5</td>
-                </tr>
-                <tr>
-                  <td data-title="Column #1">Value #1</td>
-                  <td data-title="Column #2">Value #2</td>
-                  <td data-title="Column #3">Value #3</td>
-                  <td data-title="Column #4">Value #4</td>
-                  <td data-title="Column #5">Value #5</td>
-                </tr>
-                <tr>
-                  <td data-title="Column #1">Value #1</td>
-                  <td data-title="Column #2">Value #2</td>
-                  <td data-title="Column #3">Value #3</td>
-                  <td data-title="Column #4">Value #4</td>
-                  <td data-title="Column #5">Value #5</td>
-                </tr>
-                <tr>
-                  <td data-title="Column #1">Value #1</td>
-                  <td data-title="Column #2">Value #2</td>
-                  <td data-title="Column #3">Value #3</td>
-                  <td data-title="Column #4">Value #4</td>
-                  <td data-title="Column #5">Value #5</td>
-                </tr>
-                <tr>
-                  <td data-title="Column #1">Value #1</td>
-                  <td data-title="Column #2">Value #2</td>
-                  <td data-title="Column #3">Value #3</td>
-                  <td data-title="Column #4">Value #4</td>
-                  <td data-title="Column #5">Value #5</td>
-                </tr>
-                <tr>
-                  <td data-title="Column #1">Value #1</td>
-                  <td data-title="Column #2">Value #2</td>
-                  <td data-title="Column #3">Value #3</td>
-                  <td data-title="Column #4">Value #4</td>
-                  <td data-title="Column #5">Value #5</td>
-                </tr>
-                <tr>
-                  <td data-title="Column #1">Value #1</td>
-                  <td data-title="Column #2">Value #2</td>
-                  <td data-title="Column #3">Value #3</td>
-                  <td data-title="Column #4">Value #4</td>
-                  <td data-title="Column #5">Value #5</td>
-                </tr>
-                <tr>
-                  <td data-title="Column #1">Value #1</td>
-                  <td data-title="Column #2">Value #2</td>
-                  <td data-title="Column #3">Value #3</td>
-                  <td data-title="Column #4">Value #4</td>
-                  <td data-title="Column #5">Value #5</td>
-                </tr>
-                <tr>
-                  <td data-title="Column #1">Value #1</td>
-                  <td data-title="Column #2">Value #2</td>
-                  <td data-title="Column #3">Value #3</td>
-                  <td data-title="Column #4">Value #4</td>
-                  <td data-title="Column #5">Value #5</td>
-                </tr>
-                <tr>
-                  <td data-title="Column #1">Value #1</td>
-                  <td data-title="Column #2">Value #2</td>
-                  <td data-title="Column #3">Value #3</td>
-                  <td data-title="Column #4">Value #4</td>
-                  <td data-title="Column #5">Value #5</td>
-                </tr>
-                <tr>
-                  <td data-title="Column #1">Value #1</td>
-                  <td data-title="Column #2">Value #2</td>
-                  <td data-title="Column #3">Value #3</td>
-                  <td data-title="Column #4">Value #4</td>
-                  <td data-title="Column #5">Value #5</td>
-                </tr>
-                <tr>
-                  <td data-title="Column #1">Value #1</td>
-                  <td data-title="Column #2">Value #2</td>
-                  <td data-title="Column #3">Value #3</td>
-                  <td data-title="Column #4">Value #4</td>
-                  <td data-title="Column #5">Value #5</td>
-                </tr>
-                <tr>
-                  <td data-title="Column #1">Value #1</td>
-                  <td data-title="Column #2">Value #2</td>
-                  <td data-title="Column #3">Value #3</td>
-                  <td data-title="Column #4">Value #4</td>
-                  <td data-title="Column #5">Value #5</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </body>
+        </td>
+      </tr>
+         </table> 
 </body>
+
+
+    <!-- Detail End -->
+
+
+    <!-- Footer Start -->
+    <div id="footer"></div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary rounded-0 btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+
 </html>
